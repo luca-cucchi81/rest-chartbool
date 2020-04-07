@@ -45,7 +45,7 @@ $.ajax({
                 labels: asseMesi,
                 datasets: [{
                     label: 'Fatturato Mensile',
-                    backgroundColor: '#f6c06f',
+                    backgroundColor: 'rgb(243, 171, 63, 0.6)',
                     borderColor: 'navy',
                     lineTension: 0,
                     data: asseFatturato
@@ -80,7 +80,6 @@ $.ajax({
         var nomi = [];
         var vendite = [];
         var percentualeVendite =[]
-        console.log(percentualeVendite);
 
         for (var key in oggettoIntermedio) {
             nomi.push(key);
@@ -106,9 +105,10 @@ $.ajax({
                 labels: nomi,
                 datasets: [{
                     label: 'Fatturato Mensile',
-                    backgroundColor: ['#008ad0', '#d2ff00', '#ff4000', 'green'],
+                    backgroundColor: ['rgb(0, 138, 208, 0.6)','rgb(227, 255, 102, 0.6)','rgb(255, 64, 0, 0.6)','rgb(0, 153, 0, 0.6)'],
                     borderColor: ['#fff'],
                     borderAlign: 'inner',
+                    hoverBackgroundColor: ['rgb(0, 138, 208)','rgb(227, 255, 102)','rgb(255, 64, 0)','rgb(0, 153, 0)'],
                     data: percentualeVendite
                 }]
             }
