@@ -58,36 +58,62 @@ $.ajax({
     }
 });
 
+//  grafico a torta
 
-// $.ajax({
-//     url: "http://157.230.17.132:4005/sales",
-//     method: 'GET',
-//     success: function (data) {
-//     },
-//     error: function (error){
-//         alert('errore');
-//     }
-// });
+$.ajax({
+    url: "http://157.230.17.132:4005/sales",
+    method: 'GET',
+    success: function (data) {
+        var oggettoIntermedio = {};
+
+        for (var i = 0; i < data.length; i++) {  // ciclo il json
+            var oggettoSingolo = data[i];
+            var fatturato = oggettoSingolo.amount;
+            var venditore = oggettoSingolo.salesman;
+            if (oggettoIntermedio[venditore] === undefined) {
+                oggettoIntermedio[venditore] = 0
+            }
+            oggettoIntermedio[venditore] += fatturato;
+        }
+
+        var nomi = [];
+        var vendite = [];
+        var percentualeVendite =[]
+        console.log(percentualeVendite);
+
+        for (var key in oggettoIntermedio) {
+            nomi.push(key);
+            vendite.push(oggettoIntermedio[key]);
+        }
+
+        var totaleMensile = vendite.reduce(function(a, b){  //  fuznione per calcolo fatturato totale mensile
+        return a + b;
+        }, 0);
+
+        //estrapolo la percentuale vendite dei venditori
+        for (var i = 0; i < vendite.length; i++) {
+            var check = vendite[i]
+            var perc = ((check / totaleMensile)* 100).toFixed(1);
+            percentualeVendite.push(perc)
+        }
 
 
+        var ctx = document.getElementById('mychart-pie').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: nomi,
+                datasets: [{
+                    label: 'Fatturato Mensile',
+                    backgroundColor: ['blue', 'coral', 'red', 'green'],
+                    borderColor: ['blue', 'coral', 'red', 'green'],
+                    data: percentualeVendite
+                }]
+            }
+        });
 
-
-
-
-    //
-    //
-    //
-    //
-    // var ctx = document.getElementById('mychart-pie').getContext('2d');
-    // var chart = new Chart(ctx, {
-    //     type: 'pie',
-    //     data: {
-    //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    //         datasets: [{
-    //             label: 'My First dataset',
-    //             backgroundColor: 'rgb(255, 99, 132)',
-    //             borderColor: 'rgb(255, 99, 132)',
-    //             data: [0, 10, 5, 2, 20, 30, 45]
-    //         }]
-    //     }
-    // });
+    },
+    error: function (error){
+        alert('errore');
+    }
+});
