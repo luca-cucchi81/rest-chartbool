@@ -1,4 +1,4 @@
-// grafico lineare
+// === GRAFICO LINEARE (FATTURATO MENSILE) ===
 
 $.ajax({
     url: "http://157.230.17.132:4005/sales",
@@ -59,7 +59,7 @@ $.ajax({
     }
 });
 
-//  grafico a torta
+//  === GRAFICO A TORTA (FATTURATO PER VENDITORE) ===
 
 $.ajax({
     url: "http://157.230.17.132:4005/sales",
@@ -69,8 +69,8 @@ $.ajax({
 
         for (var i = 0; i < data.length; i++) {  // ciclo il json
             var oggettoSingolo = data[i];
-            var fatturato = oggettoSingolo.amount;
-            var venditore = oggettoSingolo.salesman;
+            var fatturato = oggettoSingolo.amount; //fatturato
+            var venditore = oggettoSingolo.salesman; //nome venditore
             if (oggettoIntermedio[venditore] === undefined) {
                 oggettoIntermedio[venditore] = 0
             }
@@ -87,15 +87,15 @@ $.ajax({
             vendite.push(oggettoIntermedio[key]);
         }
 
-        var totaleMensile = vendite.reduce(function(a, b){  //  fuznione per calcolo fatturato totale mensile
+        var totaleMensile = vendite.reduce(function(a, b){  //   calcolo fatturato totale mensile 'azienda'
         return a + b;
         }, 0);
 
         //estrapolo la percentuale vendite dei venditori
         for (var i = 0; i < vendite.length; i++) {
             var check = vendite[i]
-            var perc = ((check / totaleMensile)* 100).toFixed(1);
-            percentualeVendite.push(perc)
+            var perc = ((check / totaleMensile)* 100).toFixed(1); // fatturato totale mensile venditori / fatturato totale mensile 'azienda'
+            percentualeVendite.push(perc) //pusho nell'array dedicato
         }
 
 
