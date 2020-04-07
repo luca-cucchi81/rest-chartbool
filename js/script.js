@@ -38,15 +38,16 @@ $.ajax({
             asseFatturato.push(oggettoIntermedio[key]); // pusho i fatturati totali x mese
         }
 
-        var ctx = document.getElementById('mychart-line').getContext('2d');
+        var ctx = $('#mychart-line');
         var chart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: asseMesi,
                 datasets: [{
                     label: 'Fatturato Mensile',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgb(126,182,123)',
+                    borderColor: 'navy',
+                    lineTension: 0,
                     data: asseFatturato
                 }]
             }
@@ -98,7 +99,7 @@ $.ajax({
         }
 
 
-        var ctx = document.getElementById('mychart-pie').getContext('2d');
+        var ctx = $('#mychart-pie');
         var chart = new Chart(ctx, {
             type: 'pie',
             data: {
@@ -106,7 +107,8 @@ $.ajax({
                 datasets: [{
                     label: 'Fatturato Mensile',
                     backgroundColor: ['blue', 'coral', 'red', 'green'],
-                    borderColor: ['blue', 'coral', 'red', 'green'],
+                    borderColor: ['yellow'],
+                    borderAlign: 'inner',
                     data: percentualeVendite
                 }]
             }
