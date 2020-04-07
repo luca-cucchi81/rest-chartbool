@@ -45,7 +45,7 @@ $.ajax({
                 labels: asseMesi,
                 datasets: [{
                     label: 'Fatturato Mensile',
-                    backgroundColor: 'rgb(126,182,123)',
+                    backgroundColor: '#f6c06f',
                     borderColor: 'navy',
                     lineTension: 0,
                     data: asseFatturato
@@ -106,8 +106,8 @@ $.ajax({
                 labels: nomi,
                 datasets: [{
                     label: 'Fatturato Mensile',
-                    backgroundColor: ['blue', 'coral', 'red', 'green'],
-                    borderColor: ['yellow'],
+                    backgroundColor: ['#008ad0', '#d2ff00', '#ff4000', 'green'],
+                    borderColor: ['#fff'],
                     borderAlign: 'inner',
                     data: percentualeVendite
                 }]
