@@ -10,12 +10,30 @@
       clear: both;
   }
 
-.first-container{
-    width: 60%;
-    margin: 50px auto;
+.main-container{
+    width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
+.first-container,
 .second-container{
-    width: 60%;
-    margin: 70px auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+    padding-top: 40px;
+}
+h2{
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 2em;
+    text-decoration: underline;
 }
