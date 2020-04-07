@@ -9,3 +9,13 @@
       display: table;
       clear: both;
   }
+
+.first-container{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.second-container{
+    width: 40%;
+    margin: 70px auto;
+}
