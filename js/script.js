@@ -1,3 +1,7 @@
+$('button').click(function() {
+    postNewData();
+});
+
 
 // === GRAFICO LINEARE (FATTURATO MENSILE) ===
 
@@ -120,3 +124,31 @@ $.ajax({
         alert('errore');
     }
 });
+
+
+//FUNZIONE POST NEW DATA
+
+function postNewData() {
+    var salesman = ($('#venditori').val()).charAt(0).toUpperCase() + ($('#venditori').val()).slice(1);
+    console.log(salesman);
+    var meseSelected = moment($('#mese-selected').val()).format('DD/MM/YYYY');
+    console.log(meseSelected);
+    var newAmount = parseInt($('#new-amount').val());
+    console.log(newAmount);
+
+    $.ajax({
+        url: "http://157.230.17.132:4005/sales",
+        method: 'POST',
+        data: {
+            salesman: salesman,
+            amount: newAmount,
+            date: meseSelected
+        },
+        success: function () {
+
+        },
+        error: function (error) {
+            alert('Errore invio dati')
+        }
+    });
+}
