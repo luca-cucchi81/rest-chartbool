@@ -1,3 +1,4 @@
+
 // === GRAFICO LINEARE (FATTURATO MENSILE) ===
 
 $.ajax({

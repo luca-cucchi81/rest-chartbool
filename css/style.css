@@ -19,7 +19,12 @@
     align-items: center;
 
 }
-
+.options{
+    width:40%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
 .first-container,
 .second-container{
     width: 45%;
@@ -29,7 +34,7 @@
 h1{
     text-align: center;
     font-size: 3em;
-    padding-top: 40px;
+    padding: 40px 0;
 }
 h2{
     text-align: center;
