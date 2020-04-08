@@ -42,3 +42,23 @@ h2{
     font-size: 2em;
     text-decoration: underline;
 }
+
+button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-color: navy;
+    background-color: navy;
+    color: #fff;
+}
+
+select,
+input{
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+label{
+    padding-top: 5px;
+    font-weight: bold;
+}

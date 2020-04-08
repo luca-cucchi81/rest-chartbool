@@ -1,5 +1,7 @@
 getLineChart();
 getPieChart();
+$('input').val('');
+$('#venditori').val('');
 
 $('button').click(function() {
     postNewData();
